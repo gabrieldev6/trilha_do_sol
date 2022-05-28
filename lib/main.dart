@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
@@ -21,11 +23,12 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     String user = 'Gabriel';
+    List<String> label = ['Home', 'Pacotes', 'Favoritos', 'Seu jeito'];
     final theme = Theme.of(context);
     final textTheme = theme.textTheme;
     return Scaffold(
       appBar: AppBar(
-        title: Text("Ola ${user}"),
+        title: Text("Ola, $user!"),
       ),
       drawer: Drawer(
         child: ListView(
@@ -55,33 +58,30 @@ class HomePage extends StatelessWidget {
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        backgroundColor: Color(0xFF6200EE),
-        selectedItemColor: Colors.white,
-        unselectedItemColor: Colors.white.withOpacity(.60),
-        selectedFontSize: 14,
-        unselectedFontSize: 14,
-        onTap: (value) {},
-        items: [
-        BottomNavigationBarItem(
-          title: Text('Home'),
-          icon: Icon(Icons.home)
-        ),
-        BottomNavigationBarItem(
-          title: Text('carrinho'),
-          icon: Icon(Icons.add_box),
-        ),
-        BottomNavigationBarItem(
-          title: Text('favoritos'),
-          icon: Icon(Icons.favorite),
-        ),
-        BottomNavigationBarItem(
-          title: Text('perfil'),
-          icon: Icon(Icons.person ),
-        ),
-      ]
-      ),
-      
+          type: BottomNavigationBarType.fixed,
+          backgroundColor: Colors.blue,
+          selectedItemColor: Colors.white,
+          unselectedItemColor: Colors.white.withOpacity(.60),
+          selectedFontSize: 14,
+          unselectedFontSize: 14,
+          onTap: (value) {},
+          items: [
+            BottomNavigationBarItem(
+                label: label[0],
+                icon: const Icon(Icons.home)),
+            BottomNavigationBarItem(
+              label: label[1],
+              icon: const Icon(Icons.add_box),
+            ),
+            BottomNavigationBarItem(
+              label: label[2],
+              icon: const Icon(Icons.favorite),
+            ),
+            BottomNavigationBarItem(
+              label: label[3],
+              icon: const Icon(Icons.person),
+            ),
+          ]),
     );
   }
 }
