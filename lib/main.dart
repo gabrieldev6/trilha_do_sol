@@ -54,6 +54,34 @@ class HomePage extends StatelessWidget {
           ],
         ),
       ),
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        backgroundColor: Color(0xFF6200EE),
+        selectedItemColor: Colors.white,
+        unselectedItemColor: Colors.white.withOpacity(.60),
+        selectedFontSize: 14,
+        unselectedFontSize: 14,
+        onTap: (value) {},
+        items: [
+        BottomNavigationBarItem(
+          title: Text('Home'),
+          icon: Icon(Icons.home)
+        ),
+        BottomNavigationBarItem(
+          title: Text('carrinho'),
+          icon: Icon(Icons.add_box),
+        ),
+        BottomNavigationBarItem(
+          title: Text('favoritos'),
+          icon: Icon(Icons.favorite),
+        ),
+        BottomNavigationBarItem(
+          title: Text('perfil'),
+          icon: Icon(Icons.person ),
+        ),
+      ]
+      ),
+      
     );
   }
 }
